@@ -66,16 +66,23 @@ export class AuthenticationService {
   /**
    * Get resource to fetch data from server using an end point as `url`
    */
-  public getResource(url: string) {
+  public getResource(url: string,body:object) {
     let token = localStorage.getItem('token');
     let getHeader = new Headers({ Authorization: 'Bearer ' + token });
     let options = new RequestOptions({ headers: getHeader });
-    return this.http.get(url, options);
+    var test = this.http.get(url, options);
+    debugger;
+    //return this.http.get(url, options);
+    return this.http.post(url, body, jsonHeader())
+      .map(this.extractToken)
+      .catch(this.handleError);
   }
 
   private extractToken(res: Response) {
+    debugger;
     let body = res.json();
-    if (res.status === 200) {
+    return body;
+   /* if (res.status === 200) {
       let response = 'response';
       let tokenString = 'jwt';
       let token = body[tokenString];
@@ -84,7 +91,7 @@ export class AuthenticationService {
       let maxTokenExpiryTime = expiry.getTime();
       localStorage.setItem('token', token);
       localStorage.setItem('exp', String(maxTokenExpiryTime));
-    }
+    }*/
   }
 
   /**

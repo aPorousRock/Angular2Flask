@@ -7,13 +7,21 @@ import { Http, Response } from '@angular/http';
 export class WebService {
   constructor(private authService: AuthenticationService) { }
 
-  public getDataFromBackend() {
-    return this.authService.getResource('/api/protected');
+  public getDataFromBackend(body:object) {
+   
+    //return this.authService.getResource('/api/protected');
+    return this.authService.getResource('/api/chat',body);
+  }
+
+  public getImageDataFromBackend(body:object) {
+   
+    //return this.authService.getResource('/api/protected');
+    return this.authService.getResource('/api/image',body);
   }
 
   public isAuthenticated() {
-    if (!this.authService.isAuthenticated()) {
-      this.authService.clearUserDataAndRedirect();
-    }
+  //  if (!this.authService.isAuthenticated()) {
+    //  this.authService.clearUserDataAndRedirect();
+    //}
   }
 }

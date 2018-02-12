@@ -20,8 +20,8 @@
           <!-- Brand -->
           <div class="brand-name-wrapper">
             <a class="navbar-brand clickable">
-                    Brand
-                </a>
+              Brand
+            </a>
           </div>
 
           <!-- Search -->
@@ -36,7 +36,9 @@
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-default "><span class="glyphicon glyphicon-ok"></span></button>
+                <button type="submit" class="btn btn-default ">
+                  <span class="glyphicon glyphicon-ok"></span>
+                </button>
               </form>
             </div>
           </div>
@@ -48,35 +50,58 @@
       <div class="side-menu-container">
         <ul class="nav navbar-nav">
 
-          <li><a class="clickable"><span class="glyphicon glyphicon-send"></span> Link</a></li>
-          <li class="active"><a class="clickable"><span class="glyphicon glyphicon-plane"></span> Active Link</a></li>
-          <li><a class="clickable"><span class="glyphicon glyphicon-cloud"></span> Link</a></li>
+          <li>
+            <a class="clickable">
+              <span class="glyphicon glyphicon-send"></span> Link</a>
+          </li>
+          <li class="active">
+            <a class="clickable">
+              <span class="glyphicon glyphicon-plane"></span> Active Link</a>
+          </li>
+          <li>
+            <a class="clickable">
+              <span class="glyphicon glyphicon-cloud"></span> Link</a>
+          </li>
 
           <!-- Dropdown-->
           <li class="panel panel-default" id="dropdown">
             <a data-toggle="collapse" href="#dropdown-lvl1">
-              <span class="glyphicon glyphicon-user"></span> Sub Level <span class="caret"></span>
+              <span class="glyphicon glyphicon-user"></span> Sub Level
+              <span class="caret"></span>
             </a>
 
             <!-- Dropdown level 1 -->
             <div id="dropdown-lvl1" class="panel-collapse collapse">
               <div class="panel-body">
                 <ul class="nav navbar-nav">
-                  <li><a class="clickable">Link</a></li>
-                  <li><a class="clickable">Link</a></li>
-                  <li><a class="clickable">Link</a></li>
+                  <li>
+                    <a class="clickable">Link</a>
+                  </li>
+                  <li>
+                    <a class="clickable">Link</a>
+                  </li>
+                  <li>
+                    <a class="clickable">Link</a>
+                  </li>
 
                   <!-- Dropdown level 2 -->
                   <li class="panel panel-default" id="dropdown">
                     <a data-toggle="collapse" href="#dropdown-lvl2">
-                      <span class="glyphicon glyphicon-off"></span> Sub Level <span class="caret"></span>
+                      <span class="glyphicon glyphicon-off"></span> Sub Level
+                      <span class="caret"></span>
                     </a>
                     <div id="dropdown-lvl2" class="panel-collapse collapse">
                       <div class="panel-body">
                         <ul class="nav navbar-nav">
-                          <li><a class="clickable">Link</a></li>
-                          <li><a class="clickable">Link</a></li>
-                          <li><a class="clickable">Link</a></li>
+                          <li>
+                            <a class="clickable">Link</a>
+                          </li>
+                          <li>
+                            <a class="clickable">Link</a>
+                          </li>
+                          <li>
+                            <a class="clickable">Link</a>
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -86,7 +111,10 @@
             </div>
           </li>
 
-          <li><a class="clickable"><span class="glyphicon glyphicon-signal"></span> Link</a></li>
+          <li>
+            <a class="clickable">
+              <span class="glyphicon glyphicon-signal"></span> Link</a>
+          </li>
 
         </ul>
       </div>
@@ -98,19 +126,37 @@
   <!-- Main Content -->
   <div class="container-fluid">
     <div class="side-body">
-      <h1> Main Content here </h1>
-      <pre> Resize the screen to view the left slide menu </pre>
-      <button type="button" (click)="getData()" class="btn btn-primary">Get data from backend</button>
-      <button type="button" (click)="clear()" class="btn btn-danger">Clear</button>
+      <h1> Chatbot</h1>
+
       <div class="panel">
-        <ul>
-          <li *ngFor="let hero of heroes; let i=index">
-            <p>{{hero}}</p>
-          </li>
-        </ul>
 
       </div>
 
     </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-sm-3 col-sm-offset-4 frame">
+          <ul id="myChat"></ul>
+          <div>
+            <div class="msj-rta macro" style="margin:auto">
+              <div class="text text-r" style="background:whitesmoke !important">
+                <input class="mytext" [(ngModel)]="myText" (keyup.enter)="getData()" placeholder="Type a message" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class ="col-md-6 col-md-offset-4">
+        <img src={{myImage}} style="width:300px;height:300px">
+        <h1>Image</h1>
+        <input class="mytext" [(ngModel)]="myImage" (keyup.enter)="getImage()" placeholder="Type a message" />
+        <h1>{{myImageDesc}}</h1>
+      </div>
+    </div>
+
   </div>
 </div>

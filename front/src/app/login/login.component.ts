@@ -34,10 +34,10 @@ export class LoginFormComponent implements OnInit {
   public ngOnInit() {
     console.log('Inside the login page');
 
-    if (this._service.isAuthenticated()) {
+    //if (this._service.isAuthenticated()) {
       console.log('We are authenticated, why go to login page again');
       this.router.navigate(['/home']);
-    }
+    //}
   }
 
   public loginUser() {
